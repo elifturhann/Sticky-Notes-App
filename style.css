@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Atma&family=Dancing+Script&family=Gloria+Hallelujah&family=Indie+Flower&family=Sansita+Swashed&family=Source+Sans+Pro&family=Supermercado+One&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(./images/clipboard.jpeg);
+}
+.app{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,200px);
+    padding: 24px;
+    gap: 24px;
+}
+.note{
+    height: 200px;
+    box-sizing: border-box;
+    padding: 16px;
+    border: none;
+    resize: none;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 17px;
+    transform:rotate(5deg);
+}
+.note:nth-child(2){
+    transform:rotate(-3deg);
+}
+.add{
+    height: 200px;
+    border: none;
+    outline: none;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 120px;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.add:hover{
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+
+    
