@@ -2,7 +2,7 @@ const notesContainer = document.querySelector(".app");
 const addNoteButton = notesContainer.querySelector(".add");
 const random_colors = ["#c2ff3d","#ff3de8","#3dc2ff","#04e022","#bc83e6","#ebb328"];
 const random_degree = ["rotate(3deg)", "rotate(1deg)", "rotate(-1deg)", "rotate(-3deg)", "rotate(-5deg)", "rotate(-8deg)"];
-const index = 0;
+let index = 0;
 
 
 
@@ -23,35 +23,40 @@ function saveNotes(notes) {
 }
 
 function createNoteElement(id, content) {
-  const element = document.createElement("textarea");
+  let element = document.createElement("textarea");
  
 
   element.classList.add("note");
   element.value = content;
-  element.placeholder = "Empty Sticky Note";
+  element.placeholder = "Empty Note";
 
-  element.addEventListener("change", () => {
-    updateNote(id, element.value);
-
-  
   if(index > random_colors.length - 1)
     index = 0;
 
-  note.setAttribute("style", `background-color:${random_colors[index++]}; transform:${random_degree[Math.floor(Math.random() * random_degree.length)]}`);
-});
+  element.style.background = random_colors[index++]
+  element.style.transform = `${random_degree[Math.floor(Math.random()* random_degree.length)]}`
+  
+ 
+  element.addEventListener("change", () => {
+    updateNote(id, element.value);
+    
+  })
+
+  
+ 
 
   element.addEventListener("dblclick", () => {
     const doDelete = confirm(
-      "Note will destroy itself in 5 sec!!🧨"
+      "Note will destroy itself in a sec!!🧨"
     );
 
     if (doDelete) {
       deleteNote(id, element);
     }
   });
-
   return element;
-}
+} 
+
 
 function addNote() {
   const notes = getNotes();
